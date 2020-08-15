@@ -45,8 +45,13 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
         return;
     }
 
-    Local<Object> header = args[0]->ToObject();
-    Local<Object> solution = args[1]->ToObject();
+    #if NODE_MAJOR_VERSION >= 12
+        Local<Object> header = args[0]->ToObject(isolate);
+        Local<Object> solution = args[1]->ToObject(isolate);
+    #else
+        Local<Object> header = args[0]->ToObject();
+        Local<Object> solution = args[1]->ToObject();
+    #endif
 
     if(!node::Buffer::HasInstance(header) || !node::Buffer::HasInstance(solution)) {
         isolate->ThrowException(
@@ -75,7 +80,12 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
 
     std::vector<unsigned char> vecSolution(soln, soln + node::Buffer::Length(solution));
 
-    String::Utf8Value str(args[2]);
+    #if NODE_MAJOR_VERSION >= 12
+        String::Utf8Value str(isolate, args[2]);
+    #else
+        String::Utf8Value str(args[2]);
+    #endif
+
     const char* personalizationString = ToCString(str);
 
     // Validate for N, K (4th and 5th parameters)
@@ -90,9 +100,14 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
     args.GetReturnValue().Set(result);
 }
 
-
-void Init(Handle<Object> exports) {
-    NODE_SET_METHOD(exports, "verify", Verify);
-}
+#if NODE_MAJOR_VERSION >= 12
+    void Init(Local<Object> exports) {
+        NODE_SET_METHOD(exports, "verify", Verify);
+    }
+#else
+    void Init(Handle<Object> exports) {
+        NODE_SET_METHOD(exports, "verify", Verify);
+    }
+#endif
 
 NODE_MODULE(equihashverify, Init)
