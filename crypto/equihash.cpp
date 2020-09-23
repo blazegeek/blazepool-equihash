@@ -50,7 +50,7 @@ int Equihash<N,K>::InitialiseState(eh_HashState& base_state, const char* persona
 void GenerateHash(const eh_HashState& base_state, eh_index g,
                   unsigned char* hash, size_t hLen, bool twist)
 {
-   if (!twist) {	
+   if (!twist) {
 	    eh_HashState state;
 	    state = base_state;
 	    eh_index lei = htole32(g);
@@ -64,7 +64,7 @@ void GenerateHash(const eh_HashState& base_state, eh_index g,
 	    for (uint32_t g2 = startIndex; g2 <= g; g2++) {
 		    uint32_t tmpHash[16] = {0};
 
-		    eh_HashState state;	
+		    eh_HashState state;
 		    state = base_state;
 		    eh_index lei = htole32(g2);
 		    crypto_generichash_blake2b_update(&state, (const unsigned char*) &lei,
@@ -75,11 +75,11 @@ void GenerateHash(const eh_HashState& base_state, eh_index g,
 		    for (uint32_t idx = 0; idx < 16; idx++) myHash[idx] += tmpHash[idx];
 	    }
 
-	    uint8_t * hashBytes = (uint8_t *) &myHash[0]; 
+	    uint8_t * hashBytes = (uint8_t *) &myHash[0];
 
-	    for (uint32_t i=15; i<hLen; i+=16) hashBytes[i] &= 0xF8;	
+	    for (uint32_t i=15; i<hLen; i+=16) hashBytes[i] &= 0xF8;
 
-	    memcpy(hash, &myHash[0], hLen);	
+	    memcpy(hash, &myHash[0], hLen);
 
 
     }
@@ -781,17 +781,17 @@ bool Equihash<N,K>::IsValidSolution(const eh_HashState& base_state, std::vector<
         std::vector<FullStepRow<FinalFullWidth>> Xc;
         for (int i = 0; i < X.size(); i += 2) {
             if (!HasCollision(X[i], X[i+1], CollisionByteLength)) {
-                LogPrint("pow", "Invalid solution: invalid collision length between StepRows\n");
-                LogPrint("pow", "X[i]   = %s\n", X[i].GetHex(hashLen));
-                LogPrint("pow", "X[i+1] = %s\n", X[i+1].GetHex(hashLen));
+                // LogPrint("pow", "Invalid solution: invalid collision length between StepRows\n");
+                // LogPrint("pow", "X[i]   = %s\n", X[i].GetHex(hashLen));
+                // LogPrint("pow", "X[i+1] = %s\n", X[i+1].GetHex(hashLen));
                 return false;
             }
             if (X[i+1].IndicesBefore(X[i], hashLen, lenIndices)) {
-                LogPrint("pow", "Invalid solution: Index tree incorrectly ordered\n");
+                // LogPrint("pow", "Invalid solution: Index tree incorrectly ordered\n");
                 return false;
             }
             if (!DistinctIndices(X[i], X[i+1], hashLen, lenIndices)) {
-                LogPrint("pow", "Invalid solution: duplicate indices\n");
+                // LogPrint("pow", "Invalid solution: duplicate indices\n");
                 return false;
             }
             Xc.emplace_back(X[i], X[i+1], hashLen, lenIndices, CollisionByteLength);
