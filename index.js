@@ -1,1 +1,1 @@
-module.exports = require('bindings')('blazepool-equihash.node');
+module.exports = require('bindings')('blazepoolequihash.node');
