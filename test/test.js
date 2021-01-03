@@ -1,5 +1,5 @@
 const assert = require('assert');
-const equihash = require('bindings')('blazepool-equihash.node');
+const equihash = require('bindings')('blazepoolequihash.node');
 
 describe('equihashverify', function() {
     it('should return true for correct solution test', function(){
