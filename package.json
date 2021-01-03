@@ -2,7 +2,7 @@
     "name": "blazepool-equihash",
     "version": "1.0.0",
     "description": "function to check whether an Equihash solution is valid",
-    "main": "equihashverify",
+    "main": "blazepool-equihash",
     "scripts": {
         "install": "env V=1 node-gyp rebuild",
         "test": "mocha"
@@ -13,7 +13,7 @@
     },
     "keywords": [
         "equihash",
-        "equihashverify"
+        "blazepool-equihash"
     ],
     "author": "s-nomp developers",
     "contributors": [
