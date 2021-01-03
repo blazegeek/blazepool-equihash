@@ -1,7 +1,7 @@
 {
     "targets": [
         {
-            "target_name": "blazepool-equihash",
+            "target_name": "blazepoolequihash",
             "dependencies": [
 
             ],
@@ -19,7 +19,7 @@
                 "crypto/sha1.cpp",
                 "crypto/sha256.cpp",
                 "crypto/sha512.cpp",
-                "blazepool-equihash.cc"
+                "blazepoolequihash.cc"
             ],
             "include_dirs": [
                 "<!(node -e \"require('nan')\")",
