@@ -22,7 +22,6 @@
                 "blazepoolequihash.cc"
             ],
             "include_dirs": [
-                //"<!(node -e \'require("nan")\')",
                 ".",
                 "/usr/include",
                 "/usr/include/boost",
