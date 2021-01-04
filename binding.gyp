@@ -22,7 +22,7 @@
                 "blazepoolequihash.cc"
             ],
             "include_dirs": [
-                "<!(node -e \"require('nan')\")",
+                "<!(node -e \"require("nan")\")",
                 ".",
                 "/usr/include",
                 "/usr/include/boost",
@@ -47,10 +47,10 @@
                     "-lsodium"
                 ]
             },
-            'conditions': [
-                ['OS=="mac"', {
-                    'xcode_settings': {
-                        'GCC_ENABLE_CPP_EXCEPTIONS': 'YES'
+            "conditions": [
+                ["OS=="mac"", {
+                    "xcode_settings": {
+                        "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
                     }
                 }]
             ]
