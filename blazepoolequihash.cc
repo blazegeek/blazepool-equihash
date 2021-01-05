@@ -109,4 +109,4 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
     }
 #endif
 
-NODE_MODULE(blazepoolequihash, Init)
+NODE_MODULE(blazepoolequihash, init)

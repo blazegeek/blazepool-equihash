@@ -1,42 +1,42 @@
 {
-    "name": "blazepool-equihash",
-    "version": "1.0.0",
-    "description": "function to check whether an Equihash solution is valid",
-    "main": "blazepoolequihash",
-    "scripts": {
-        "install": "env V=1 node-gyp rebuild"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/blazegeek/blazepool-equihash.git"
-    },
-    "keywords": [
-        "equihash",
-        "blazepoolequihash"
-    ],
-    "author": "s-nomp developers",
-    "contributors": [
-        "Alberto Garoffolo",
-        "cronic",
-        "egyptianbman",
-        "LitecoinZ",
-        "Coinblockers",
-        "MilesManley",
-        "s-nomp developers"
-    ],
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/blazegeek/blazepool-equihash/issues"
-    },
-    "homepage": "https://github.com/blazegeek/blazepool-equihash",
-    "dependencies": {
-        "bindings": "*",
-        "libsodium": "^0.7.3",
-        "minimist": ">=0.2.1",
-        "nan": "*",
-        "node-gyp": ">=7.1.0"
-    },
-    "engines": {
-        "node": ">=0.12"
-    }
+	"name": "blazepool-equihash",
+	"version": "1.0.0",
+	"description": "function to check whether an Equihash solution is valid",
+	"main": "blazepoolequihash",
+	"scripts": {
+		"install": "env V=1 node-gyp rebuild"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/blazegeek/blazepool-equihash.git"
+	},
+	"keywords": [
+		"equihash",
+		"blazepoolequihash"
+	],
+	"author": "s-nomp developers",
+	"contributors": [
+		"Alberto Garoffolo",
+		"cronic",
+		"egyptianbman",
+		"LitecoinZ",
+		"Coinblockers",
+		"MilesManley",
+		"s-nomp developers"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/blazegeek/blazepool-equihash/issues"
+	},
+	"homepage": "https://github.com/blazegeek/blazepool-equihash",
+	"dependencies": {
+		"bindings": "*",
+		"libsodium": "^0.7.3",
+		"minimist": ">=0.2.1",
+		"nan": "*",
+		"node-gyp": ">=7.1.0"
+	},
+	"engines": {
+		"node": ">=0.12"
+	}
 }
