@@ -100,11 +100,11 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
 }
 
 #if NODE_MAJOR_VERSION >= 12
-    void Init(Local<Object> exports) {
+    void init(Local<Object> exports) {
         NODE_SET_METHOD(exports, "verify", Verify);
     }
 #else
-    void Init(Handle<Object> exports) {
+    void init(Handle<Object> exports) {
         NODE_SET_METHOD(exports, "verify", Verify);
     }
 #endif
