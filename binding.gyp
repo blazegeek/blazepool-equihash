@@ -23,7 +23,7 @@
 			"/usr/include",
 			"/usr/include/boost"
 		],
-		"libraries": [
+		"library_dirs": [
 			"/usr/lib/x86_64-linux-gnu"
 		],
 		"defines": [
